@@ -25,9 +25,17 @@ header {
 }
 
 .logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
     font-size: 20px;
     font-weight: 700;
     letter-spacing: -0.5px;
+}
+
+.logo-img {
+    height: 32px;
+    width: auto;
 }
 
 nav {
