@@ -205,13 +205,17 @@ h1 {
 
 @media (max-width: 1200px) {
     h1 { font-size: 80px; }
-    .poster-frame { width: 400px; height: 540px; }
+    .poster-frame { width: 400px; height: 580px; }
+    .poster-text h2 { font-size: 40px; }
+    .poster-desc { font-size: 8.5px; line-height: 1.4; }
+    .poster-img { transform: scale(1.1) translateY(16%); }
 }
 
 @media (max-width: 900px) {
-    main { flex-direction: column; text-align: center; justify-content: center; gap: 80px; padding: 40px; }
+    main { flex-direction: column; text-align: center; justify-content: center; gap: 80px; padding: 40px 20px; }
     .hero-content { align-items: center; display: flex; flex-direction: column; }
-    .hero-image-container { padding-left: 0; padding-bottom: 80px; }
-    .poster-frame { transform: rotate(0deg); }
+    .hero-image-container { padding-left: 0; padding-bottom: 80px; width: 100%; }
+    .poster-frame { transform: rotate(0deg); width: 100%; max-width: 400px; height: 580px; }
     .poster-frame:hover { transform: scale(1.02); }
+    .poster-img { transform: scale(1.1) translateY(20%); }
 }
