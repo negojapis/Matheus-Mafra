@@ -144,7 +144,7 @@ h1 {
 }
 
 .poster-text {
-    padding: 36px 36px 0 36px;
+    padding: 36px 36px 0 24px;
     position: relative;
     z-index: 2;
 }
@@ -164,16 +164,17 @@ h1 {
 }
 
 .poster-desc {
-    color: #b0b0b0;
-    font-size: 8px;
-    line-height: 1.5;
-    max-width: 85%;
+    color: #f0f0f0;
+    font-size: 10.5px;
+    line-height: 1.6;
+    max-width: 88%;
     text-align: justify;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.8);
 }
 
 .poster-desc strong {
     color: #ffffff;
-    font-size: 9px;
+    font-size: 12px;
     display: block;
     margin-bottom: 8px;
 }
@@ -186,10 +187,11 @@ h1 {
     height: 100%;
     object-fit: cover;
     object-position: center top;
-    transform: scale(1.35) translate(12%, 5%);
+    transform: scale(1.35) translate(18%, 5%);
     z-index: 1;
     opacity: 0.85;
     mix-blend-mode: lighten;
+    filter: grayscale(100%) contrast(1.1);
     mask-image: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,0,0,1) 40%);
     -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,0,0,1) 40%);
 }
