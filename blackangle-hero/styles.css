@@ -153,6 +153,7 @@ h1 {
     padding: 16px 36px 0 24px;
     position: relative;
     z-index: 2;
+    text-align: left;
 }
 
 .poster-text h2 {
