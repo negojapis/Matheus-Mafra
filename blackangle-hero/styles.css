@@ -1,0 +1,205 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: #030303;
+    color: #ffffff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px 80px;
+    width: 100%;
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+nav {
+    display: flex;
+    gap: 48px;
+    align-items: center;
+}
+
+nav a {
+    color: #cccccc;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #ffffff;
+}
+
+nav a.cart {
+    font-weight: 700;
+    color: #ffffff;
+}
+
+main {
+    display: flex;
+    flex: 1;
+    padding: 0 80px;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1600px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.hero-content {
+    flex: 1;
+    max-width: 540px;
+    z-index: 2;
+}
+
+h1 {
+    font-size: 96px;
+    font-weight: 800;
+    line-height: 1.05;
+    margin-bottom: 24px;
+    letter-spacing: -3px;
+}
+
+.outline-text {
+    color: transparent;
+    -webkit-text-stroke: 2px #ffffff;
+}
+
+.hero-content p {
+    color: #888888;
+    font-size: 20px;
+    margin-bottom: 48px;
+    font-weight: 400;
+}
+
+.buy-btn {
+    background-color: #ffffff;
+    color: #000000;
+    border: none;
+    padding: 14px 32px;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.buy-btn:hover {
+    background-color: #e0e0e0;
+    transform: translateY(-2px);
+}
+
+.hero-image-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding-left: 60px;
+}
+
+.poster-frame {
+    background-color: #222222;
+    padding: 16px;
+    transform: rotate(-12deg);
+    transform-origin: center;
+    box-shadow: -20px 20px 80px rgba(0, 0, 0, 0.9),
+                0 0 40px rgba(255, 255, 255, 0.03);
+    width: 480px;
+    height: 640px;
+    display: flex;
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.poster-frame:hover {
+    transform: rotate(-8deg) scale(1.02);
+}
+
+.poster-content {
+    background-color: #050505;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.poster-text {
+    padding: 36px 36px 0 36px;
+    position: relative;
+    z-index: 2;
+}
+
+.poster-text h2 {
+    font-size: 56px;
+    font-weight: 800;
+    line-height: 0.9;
+    letter-spacing: -2px;
+}
+
+.outline-poster {
+    color: transparent;
+    -webkit-text-stroke: 1.5px #ffffff;
+    display: block;
+    margin-bottom: 24px;
+}
+
+.poster-desc {
+    color: #b0b0b0;
+    font-size: 8px;
+    line-height: 1.5;
+    max-width: 85%;
+    text-align: justify;
+}
+
+.poster-desc strong {
+    color: #ffffff;
+    font-size: 9px;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.poster-img {
+    position: absolute;
+    bottom: -20px;
+    right: -20px;
+    width: 115%;
+    height: auto;
+    z-index: 1;
+    opacity: 0.85;
+    mix-blend-mode: lighten;
+    mask-image: linear-gradient(to top, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%);
+    -webkit-mask-image: linear-gradient(to top, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%);
+}
+
+@media (max-width: 1200px) {
+    h1 { font-size: 80px; }
+    .poster-frame { width: 400px; height: 540px; }
+}
+
+@media (max-width: 900px) {
+    main { flex-direction: column; text-align: center; justify-content: center; gap: 80px; padding: 40px; }
+    .hero-content { align-items: center; display: flex; flex-direction: column; }
+    .hero-image-container { padding-left: 0; padding-bottom: 80px; }
+    .poster-frame { transform: rotate(0deg); }
+    .poster-frame:hover { transform: scale(1.02); }
+}
