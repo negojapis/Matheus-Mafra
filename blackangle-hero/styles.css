@@ -186,6 +186,7 @@ h1 {
     height: 100%;
     object-fit: cover;
     object-position: center top;
+    transform: scale(1.35) translate(12%, 5%);
     z-index: 1;
     opacity: 0.85;
     mix-blend-mode: lighten;
