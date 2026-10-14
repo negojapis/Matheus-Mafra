@@ -151,7 +151,7 @@ export type VideoStreamHeroProps = {
 
 export function VideoStreamHero({
   videos,
-  cards = 9,
+  cards = 6,
   speed = 18,
   axis = 55,
   path,
@@ -159,12 +159,34 @@ export function VideoStreamHero({
   className,
   ...props
 }: React.ComponentProps<"div"> & VideoStreamHeroProps) {
+  const containerRef = React.useRef<HTMLDivElement | null>(null);
   const id = React.useId().replace(/[^a-zA-Z0-9]/g, "");
   const right = `ish-r-${id}`;
   const left = `ish-l-${id}`;
   const card = `ish-c-${id}`;
 
   const p = React.useMemo(() => ({ ...PATH, ...path }), [path]);
+
+  // Pause corridor videos when user scrolls away from Hero to save GPU/CPU
+  React.useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        const vids = el.querySelectorAll<HTMLVideoElement>('video');
+        if (entry.isIntersecting) {
+          vids.forEach((v) => v.play().catch(() => {}));
+        } else {
+          vids.forEach((v) => v.pause());
+        }
+      },
+      { threshold: 0.05 }
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
 
   const css = React.useMemo(
     () =>
@@ -178,6 +200,7 @@ export function VideoStreamHero({
 
   return (
     <div
+      ref={containerRef}
       className={cn("relative overflow-hidden", className)}
       {...props}
       style={{ containerType: "inline-size", ...(props.style as any) }}
@@ -218,6 +241,7 @@ export function VideoStreamHero({
                     // corridor is already full on the first frame.
                     animationDelay: `${-(i * speed) / cards}s`,
                     backfaceVisibility: "hidden",
+                    willChange: "transform",
                   }}
                 >
                   {video ? (
@@ -230,7 +254,7 @@ export function VideoStreamHero({
                       playsInline
                       disablePictureInPicture
                       disableRemotePlayback
-                      preload="metadata"
+                      preload="none"
                       className="h-full w-full object-cover"
                       draggable={false}
                     />
