@@ -198,9 +198,8 @@ export const LancamentosSection: React.FC<{
           {/* Left Column: Info, Countdown & CTAs */}
           <div className="lancamento-info-col fade-up">
             
-            <div className="lancamento-badge-wrapper">
-              <span className="lancamento-eyebrow">
-                <span className="lancamento-eyebrow-dot"></span>
+            <div className="lancamento-kicker-wrapper">
+              <span className="lancamento-kicker">
                 {timeLeft.isReleased ? 'JÁ DISPONÍVEL' : 'PRÓXIMO LANÇAMENTO'}
               </span>
             </div>
@@ -221,27 +220,27 @@ export const LancamentosSection: React.FC<{
 
             {/* Countdown or Available Badge */}
             {!timeLeft.isReleased ? (
-              <div className="countdown-container">
-                <span className="countdown-label">CONTAGEM REGRESSIVA PARA O LANÇAMENTO</span>
-                <div className="countdown-grid">
-                  <div className="countdown-box">
-                    <span className="countdown-number">{String(timeLeft.days).padStart(2, '0')}</span>
-                    <span className="countdown-unit">DIAS</span>
+              <div className="countdown-sophisticated">
+                <span className="countdown-eyebrow-text">CONTAGEM REGRESSIVA PARA O LANÇAMENTO</span>
+                <div className="countdown-values-row">
+                  <div className="countdown-stat">
+                    <span className="countdown-val">{String(timeLeft.days).padStart(2, '0')}</span>
+                    <span className="countdown-lbl">DIAS</span>
                   </div>
-                  <div className="countdown-separator">:</div>
-                  <div className="countdown-box">
-                    <span className="countdown-number">{String(timeLeft.hours).padStart(2, '0')}</span>
-                    <span className="countdown-unit">HORAS</span>
+                  <span className="countdown-divider">/</span>
+                  <div className="countdown-stat">
+                    <span className="countdown-val">{String(timeLeft.hours).padStart(2, '0')}</span>
+                    <span className="countdown-lbl">HORAS</span>
                   </div>
-                  <div className="countdown-separator">:</div>
-                  <div className="countdown-box">
-                    <span className="countdown-number">{String(timeLeft.minutes).padStart(2, '0')}</span>
-                    <span className="countdown-unit">MIN</span>
+                  <span className="countdown-divider">/</span>
+                  <div className="countdown-stat">
+                    <span className="countdown-val">{String(timeLeft.minutes).padStart(2, '0')}</span>
+                    <span className="countdown-lbl">MIN</span>
                   </div>
-                  <div className="countdown-separator">:</div>
-                  <div className="countdown-box">
-                    <span className="countdown-number">{String(timeLeft.seconds).padStart(2, '0')}</span>
-                    <span className="countdown-unit">SEG</span>
+                  <span className="countdown-divider">/</span>
+                  <div className="countdown-stat">
+                    <span className="countdown-val">{String(timeLeft.seconds).padStart(2, '0')}</span>
+                    <span className="countdown-lbl">SEG</span>
                   </div>
                 </div>
               </div>
@@ -298,9 +297,9 @@ export const LancamentosSection: React.FC<{
               title={isPlayingTeaser ? "Clique para pausar o teaser" : "Clique para reproduzir o teaser"}
             >
               
-              {/* Cover Artwork */}
+              {/* Official Cover Artwork */}
               <img 
-                src="/copo-americano-cover.jpg" 
+                src="/Capa-Copo Americano.jpeg" 
                 alt="Capa Oficial do Single Copo Americano - Matheus Mafra" 
                 className={`lancamento-cover-img ${isPlayingTeaser ? 'is-playing' : ''}`}
                 loading="eager"
@@ -309,9 +308,10 @@ export const LancamentosSection: React.FC<{
               {/* Embedded video player when playing inline teaser */}
               <video 
                 ref={teaserVideoRef}
-                src="/Videos/IMG_9605.mp4"
+                src="/Videos/IMG_9605-fast.mp4"
                 playsInline
                 loop
+                preload="metadata"
                 className={`lancamento-teaser-video ${isPlayingTeaser ? 'active' : ''}`}
                 onEnded={() => setIsPlayingTeaser(false)}
               />
@@ -319,15 +319,10 @@ export const LancamentosSection: React.FC<{
               {/* Gradient overlay */}
               <div className="lancamento-cover-overlay"></div>
 
-              {/* Sound Wave Animation */}
-              <div className="soundwave-container" title={isPlayingTeaser ? 'Reproduzindo Teaser' : 'Teaser disponível'}>
-                <div className={`soundwave-bar ${isPlayingTeaser ? 'anim-playing' : 'anim-idle'}`}></div>
-                <div className={`soundwave-bar ${isPlayingTeaser ? 'anim-playing' : 'anim-idle'}`}></div>
-                <div className={`soundwave-bar ${isPlayingTeaser ? 'anim-playing' : 'anim-idle'}`}></div>
-                <div className={`soundwave-bar ${isPlayingTeaser ? 'anim-playing' : 'anim-idle'}`}></div>
-                <div className={`soundwave-bar ${isPlayingTeaser ? 'anim-playing' : 'anim-idle'}`}></div>
-                <span className="soundwave-text">{isPlayingTeaser ? 'TEASER TOCANDO' : 'PRÉVIA OFICIAL'}</span>
-              </div>
+              {/* Discreet Preview text indicator (no card) */}
+              <span className="lancamento-previa-text">
+                {isPlayingTeaser ? 'REPRODUZINDO PRÉVIA' : 'PRÉVIA OFICIAL'}
+              </span>
 
               {/* Interactive Play/Pause Button on Cover */}
               <button 
@@ -346,54 +341,6 @@ export const LancamentosSection: React.FC<{
 
         </div>
 
-        {/* Streaming Platforms Bar */}
-        <div className="streaming-platforms-bar fade-up">
-          <span className="streaming-bar-title">
-            {timeLeft.isReleased ? 'DISPONÍVEL NAS PLATAFORMAS:' : 'PRÉ-SAVE DISPONÍVEL EM:'}
-          </span>
-          <div className="streaming-bar-links">
-            <a 
-              href="https://open.spotify.com/intl-pt/artist/1njnBjpC4mGUCdMaFpKWDy?si=YNHmcxg9RDqRytzbnuPiJg" 
-              target="_blank" 
-              rel="noreferrer" 
-              className="streaming-chip spotify"
-              aria-label="Spotify"
-            >
-              <SpotifyIcon size={18} />
-              <span>Spotify</span>
-            </a>
-            <a 
-              href="https://www.youtube.com/@matheusmafra" 
-              target="_blank" 
-              rel="noreferrer" 
-              className="streaming-chip youtube"
-              aria-label="YouTube"
-            >
-              <YouTubeIcon size={18} />
-              <span>YouTube</span>
-            </a>
-            <a 
-              href="https://www.deezer.com/search/Matheus%20Mafra" 
-              target="_blank" 
-              rel="noreferrer" 
-              className="streaming-chip deezer"
-              aria-label="Deezer"
-            >
-              <DeezerIcon size={18} />
-              <span>Deezer</span>
-            </a>
-            <a 
-              href="https://music.apple.com/search?term=Matheus%20Mafra" 
-              target="_blank" 
-              rel="noreferrer" 
-              className="streaming-chip apple"
-              aria-label="Apple Music"
-            >
-              <AppleMusicIcon size={18} />
-              <span>Apple Music</span>
-            </a>
-          </div>
-        </div>
 
         {/* Subseção: Outros Lançamentos */}
         <div className="outros-lancamentos-section fade-up">

@@ -16,9 +16,10 @@ import {
 registerLocale('pt-BR', ptBR);
 
 // High-performance video card for the gallery:
+// High-performance video card for the gallery:
 // Only plays when inside viewport, pauses when scrolled out or when full-screen modal is active
 const GalleryVideoItem: React.FC<{
-  item: { title: string; category: string; videoSrc: string };
+  item: { title: string; category: string; videoSrc: string; fullVideoSrc?: string; poster?: string };
   onOpen: () => void;
   isModalOpen: boolean;
 }> = ({ item, onOpen, isModalOpen }) => {
@@ -65,7 +66,8 @@ const GalleryVideoItem: React.FC<{
     >
       <video
         ref={videoRef}
-        src={`${item.videoSrc}#t=0.1`}
+        src={item.videoSrc}
+        poster={item.poster}
         loop
         muted
         playsInline
@@ -82,9 +84,10 @@ const GalleryVideoItem: React.FC<{
 // High-performance live experience highlight video
 const HighlightVideo: React.FC<{
   videoSrc: string;
+  poster?: string;
   onOpen: () => void;
   isModalOpen: boolean;
-}> = ({ videoSrc, onOpen, isModalOpen }) => {
+}> = ({ videoSrc, poster, onOpen, isModalOpen }) => {
   const wrapperRef = useRef<HTMLDivElement | null>(null);
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const [inView, setInView] = useState(false);
@@ -124,6 +127,7 @@ const HighlightVideo: React.FC<{
       <video
         ref={videoRef}
         src={videoSrc}
+        poster={poster}
         loop
         muted
         playsInline
@@ -251,98 +255,132 @@ ${formData.message ? `• Mensagem: ${formData.message}` : ''}`;
     {
       title: "Uma Noite Inesquecível",
       category: "Casamento",
-      videoSrc: "/Videos/snapinsta-1791555011720.mp4"
+      videoSrc: "/Videos/stream-2.mp4",
+      fullVideoSrc: "/Videos/snapinsta-1791555011720.mp4",
+      poster: "/Videos/stream-2-poster.jpg"
     },
     {
       title: "Voz e Violão na Cerimônia",
       category: "Casamento",
-      videoSrc: "/Videos/snapinsta-1791554979756.mp4"
+      videoSrc: "/Videos/stream-1.mp4",
+      fullVideoSrc: "/Videos/snapinsta-1791554979756.mp4",
+      poster: "/Videos/stream-1-poster.jpg"
     },
     {
       title: "Emoção com os Noivos",
       category: "Casamento",
-      videoSrc: "/Videos/snapinsta-1791555056267.mp4"
+      videoSrc: "/Videos/stream-3.mp4",
+      fullVideoSrc: "/Videos/snapinsta-1791555056267.mp4",
+      poster: "/Videos/stream-3-poster.jpg"
     },
     {
       title: "Energia na Pista de Dança",
       category: "Casamento",
-      videoSrc: "/Videos/snapinsta-1791555120099.mp4"
+      videoSrc: "/Videos/stream-4.mp4",
+      fullVideoSrc: "/Videos/snapinsta-1791555120099.mp4",
+      poster: "/Videos/stream-4-poster.jpg"
     },
     {
       title: "Quando Todos Cantam Juntos",
       category: "Casamento",
-      videoSrc: "/Videos/snapinsta-1791555136570.mp4"
+      videoSrc: "/Videos/stream-5.mp4",
+      fullVideoSrc: "/Videos/snapinsta-1791555136570.mp4",
+      poster: "/Videos/stream-5-poster.jpg"
     },
     {
       title: "Apresentação com Banda",
       category: "Casamento",
-      videoSrc: "/Videos/snapinsta-1791555214315.mp4"
+      videoSrc: "/Videos/stream-6.mp4",
+      fullVideoSrc: "/Videos/snapinsta-1791555214315.mp4",
+      poster: "/Videos/stream-6-poster.jpg"
     },
     {
       title: "A Trilha Sonora da História",
       category: "Show",
-      videoSrc: "/Videos/snapinsta-1791555222989.mp4"
+      videoSrc: "/Videos/stream-7.mp4",
+      fullVideoSrc: "/Videos/snapinsta-1791555222989.mp4",
+      poster: "/Videos/stream-7-poster.jpg"
     },
     {
       title: "Acústico ao Ar Livre",
       category: "Chá Revelação",
-      videoSrc: "/Videos/snapinsta-1791906965525.mp4"
+      videoSrc: "/Videos/gallery-preview-1.mp4",
+      fullVideoSrc: "/Videos/snapinsta-1791906965525.mp4",
+      poster: "/Videos/gallery-poster-1.jpg"
     },
     {
       title: "Momento da Revelação",
       category: "Chá Revelação",
-      videoSrc: "/Videos/snapinsta-1791906993931.mp4"
+      videoSrc: "/Videos/gallery-preview-2.mp4",
+      fullVideoSrc: "/Videos/snapinsta-1791906993931.mp4",
+      poster: "/Videos/gallery-poster-2.jpg"
     },
     {
       title: "Celebração com Convidados",
       category: "Chá Revelação",
-      videoSrc: "/Videos/snapinsta-1791907073465.mp4"
+      videoSrc: "/Videos/gallery-preview-3.mp4",
+      fullVideoSrc: "/Videos/snapinsta-1791907073465.mp4",
+      poster: "/Videos/gallery-poster-3.jpg"
     },
     {
       title: "Identidade & Estrutura",
       category: "Evento",
-      videoSrc: "/Videos/snapinsta-1791907083880.mp4"
+      videoSrc: "/Videos/gallery-preview-4.mp4",
+      fullVideoSrc: "/Videos/snapinsta-1791907083880.mp4",
+      poster: "/Videos/gallery-poster-4.jpg"
     },
     {
       title: "Visita & Ação Especial",
       category: "Ação Especial",
-      videoSrc: "/Videos/snapinsta-1791907169170.mp4"
+      videoSrc: "/Videos/gallery-preview-5.mp4",
+      fullVideoSrc: "/Videos/snapinsta-1791907169170.mp4",
+      poster: "/Videos/gallery-poster-5.jpg"
     },
     {
       title: "Recepção Elegante",
       category: "Evento",
-      videoSrc: "/Videos/snapinsta-1791907244709.mp4"
+      videoSrc: "/Videos/gallery-preview-6.mp4",
+      fullVideoSrc: "/Videos/snapinsta-1791907244709.mp4",
+      poster: "/Videos/gallery-poster-6.jpg"
     },
     {
       title: "Mercedes-Benz & Som",
       category: "Evento Corporativo",
-      videoSrc: "/Videos/snapinsta-1791907286509.mp4"
+      videoSrc: "/Videos/gallery-preview-7.mp4",
+      fullVideoSrc: "/Videos/snapinsta-1791907286509.mp4",
+      poster: "/Videos/gallery-poster-7.jpg"
     },
     {
       title: "BMW • Ocasião Exclusiva",
       category: "Evento Corporativo",
-      videoSrc: "/Videos/snapinsta-1791907294029.mp4"
+      videoSrc: "/Videos/gallery-preview-8.mp4",
+      fullVideoSrc: "/Videos/snapinsta-1791907294029.mp4",
+      poster: "/Videos/gallery-poster-8.jpg"
     },
     {
       title: "Cenário & Emoção",
       category: "Show",
-      videoSrc: "/Videos/snapinsta-1791907401710.mp4"
+      videoSrc: "/Videos/gallery-preview-9.mp4",
+      fullVideoSrc: "/Videos/snapinsta-1791907401710.mp4",
+      poster: "/Videos/gallery-poster-9.jpg"
     },
     {
       title: "Voz e Presença no Palco",
       category: "Show",
-      videoSrc: "/Videos/snapinsta-1791907460644.mp4"
+      videoSrc: "/Videos/gallery-preview-10.mp4",
+      fullVideoSrc: "/Videos/snapinsta-1791907460644.mp4",
+      poster: "/Videos/gallery-poster-10.jpg"
     }
   ];
 
   const heroVideos = [
-    { src: "/Videos/snapinsta-1791554979756.mp4#t=10", poster: "" },
-    { src: "/Videos/snapinsta-1791555011720.mp4#t=10", poster: "" },
-    { src: "/Videos/snapinsta-1791555056267.mp4#t=10", poster: "" },
-    { src: "/Videos/snapinsta-1791555120099.mp4#t=10", poster: "" },
-    { src: "/Videos/snapinsta-1791555136570.mp4#t=10", poster: "" },
-    { src: "/Videos/snapinsta-1791555214315.mp4#t=10", poster: "" },
-    { src: "/Videos/snapinsta-1791555222989.mp4#t=10", poster: "" },
+    { src: "/Videos/stream-1.mp4", poster: "/Videos/stream-1-poster.jpg" },
+    { src: "/Videos/stream-2.mp4", poster: "/Videos/stream-2-poster.jpg" },
+    { src: "/Videos/stream-3.mp4", poster: "/Videos/stream-3-poster.jpg" },
+    { src: "/Videos/stream-4.mp4", poster: "/Videos/stream-4-poster.jpg" },
+    { src: "/Videos/stream-5.mp4", poster: "/Videos/stream-5-poster.jpg" },
+    { src: "/Videos/stream-6.mp4", poster: "/Videos/stream-6-poster.jpg" },
+    { src: "/Videos/stream-7.mp4", poster: "/Videos/stream-7-poster.jpg" },
   ];
 
   return (
@@ -485,7 +523,8 @@ ${formData.message ? `• Mensagem: ${formData.message}` : ''}`;
             <span className="highlight-text fade-up delay-1">É SOBRE SENTIR, CELEBRAR E LEMBRAR.</span>
             
             <HighlightVideo 
-              videoSrc="/Videos/mafra-filme-1.mp4"
+              videoSrc="/Videos/mafra-filme-1-preview.mp4"
+              poster="/Videos/mafra-filme-1-poster.jpg"
               onOpen={() => openModal("/Videos/mafra-filme-1.mp4")}
               isModalOpen={!!modalVideo}
             />
@@ -502,7 +541,7 @@ ${formData.message ? `• Mensagem: ${formData.message}` : ''}`;
                 <GalleryVideoItem 
                   key={index}
                   item={item}
-                  onOpen={() => openModal(item.videoSrc)}
+                  onOpen={() => openModal(item.fullVideoSrc || item.videoSrc)}
                   isModalOpen={!!modalVideo}
                 />
               ))}
@@ -511,19 +550,14 @@ ${formData.message ? `• Mensagem: ${formData.message}` : ''}`;
               <a 
                 href="#contato"
                 className="gallery-item gallery-cta-card"
-                aria-label="Qual será o seu momento? Solicite uma proposta para o seu evento"
+                aria-label="Qual será o seu momento? Entre em contato para o seu evento"
               >
-                <div className="gallery-cta-glow"></div>
-                <div className="gallery-cta-content">
-                  <div className="gallery-cta-badge">
-                    <span className="gallery-cta-dot"></span>
-                    <span>SEU EVENTO</span>
+                <div className="gallery-cta-inner">
+                  <div className="gallery-cta-icon-wrap">
+                    <img src="/logo-monograma.png" alt="Matheus Mafra" className="gallery-cta-monogram" />
                   </div>
 
-                  <div className="gallery-cta-center">
-                    <div className="gallery-cta-icon-wrap">
-                      <img src="/logo-monograma.png" alt="Matheus Mafra" className="gallery-cta-monogram" />
-                    </div>
+                  <div className="gallery-cta-text-wrap">
                     <h3 className="gallery-cta-title">
                       QUAL SERÁ O SEU MOMENTO?
                     </h3>
@@ -532,10 +566,9 @@ ${formData.message ? `• Mensagem: ${formData.message}` : ''}`;
                     </p>
                   </div>
 
-                  <div className="gallery-cta-footer">
-                    <span className="gallery-cta-btn">
-                      <span>Solicitar Proposta</span>
-                      <ArrowUpRightIcon size={14} />
+                  <div className="gallery-cta-arrow-wrap">
+                    <span className="gallery-cta-arrow-circle">
+                      <ArrowUpRightIcon size={16} />
                     </span>
                   </div>
                 </div>
@@ -551,21 +584,30 @@ ${formData.message ? `• Mensagem: ${formData.message}` : ''}`;
         <section id="artista" className="artista section-padding bg-darker">
           <div className="container artista-grid">
             <div className="artista-image-wrapper fade-in">
-              <img src="/foto-960x1280.jpg" alt="Matheus Mafra" className="artista-image" loading="lazy" />
+              <img 
+                src="/mafra-alta-3.jpg" 
+                alt="Matheus Mafra - Show e Eventos Exclusivos" 
+                className="artista-image" 
+                loading="lazy" 
+              />
             </div>
             <div className="artista-text fade-up">
               <span className="eyebrow">MATHEUS MAFRA</span>
               <h2 className="section-title">O ARTISTA POR<br/>TRÁS DA VOZ.</h2>
               
               <div className="editorial-body">
-                <p>Cantor há mais de 10 anos, Matheus Mafra encontrou na música uma forma de transformar encontros em memórias. Sua trajetória reúne apresentações, celebrações e histórias vividas ao lado de pessoas que escolheram a música para marcar momentos importantes.</p>
-                <p>Hoje, sua experiência se encontra com uma proposta mais próxima, elegante e personalizada: criar a atmosfera certa para casamentos, aniversários e celebrações especiais.</p>
-                <p>Mais do que interpretar canções, Matheus busca compreender a história por trás de cada evento e transformá-la em uma experiência com significado.</p>
+                <p>
+                  Matheus Mafra — conhecido carinhosamente no cenário musical por <strong>Mafra</strong> — atua profissionalmente na música há <strong>12 anos</strong>. Multi-instrumentista e apaixonado pela arte de emocionar, tem no violão um de seus principais parceiros e se destaca pela <strong>voz marcante</strong> aliada a uma presença de palco autêntica e envolvente.
+                </p>
+                <p>
+                  Sua trajetória reúne apresentações marcantes, grandes celebrações e histórias inesquecíveis vividas ao lado de quem escolheu a música para eternizar momentos únicos.
+                </p>
+                <p className="editorial-highlight">
+                  Um show concebido para <strong>celebrar, reunir pessoas e transformar o seu evento em uma experiência especial.</strong>
+                </p>
                 
                 <p className="signature">Porque toda história merece uma trilha sonora.</p>
               </div>
-
-
             </div>
           </div>
         </section>

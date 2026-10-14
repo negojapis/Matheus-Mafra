@@ -254,7 +254,7 @@ export function VideoStreamHero({
                       playsInline
                       disablePictureInPicture
                       disableRemotePlayback
-                      preload="none"
+                      preload="auto"
                       className="h-full w-full object-cover"
                       draggable={false}
                     />
