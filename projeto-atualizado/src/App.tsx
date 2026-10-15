@@ -597,10 +597,7 @@ ${formData.message ? `• Mensagem: ${formData.message}` : ''}`;
               
               <div className="editorial-body">
                 <p>
-                  Matheus Mafra — conhecido carinhosamente no cenário musical por <strong>Mafra</strong> — atua profissionalmente na música há <strong>12 anos</strong>. Multi-instrumentista e apaixonado pela arte de emocionar, tem no violão um de seus principais parceiros e se destaca pela <strong>voz marcante</strong> aliada a uma presença de palco autêntica e envolvente.
-                </p>
-                <p>
-                  Sua trajetória reúne apresentações marcantes, grandes celebrações e histórias inesquecíveis vividas ao lado de quem escolheu a música para eternizar momentos únicos.
+                  Matheus Mafra, conhecido carinhosamente no cenário musical como <strong>Mafra</strong>, atua profissionalmente na música há <strong>12 anos</strong>. Multi-instrumentista e apaixonado pela arte de emocionar, tem no violão um de seus principais parceiros e se destaca pela <strong>voz marcante</strong>, aliada a uma presença de palco autêntica e envolvente. Sua trajetória reúne apresentações marcantes, grandes celebrações e histórias inesquecíveis vividas ao lado de quem escolheu a música para eternizar momentos únicos.
                 </p>
                 <p className="editorial-highlight">
                   Um show concebido para <strong>celebrar, reunir pessoas e transformar o seu evento em uma experiência especial.</strong>

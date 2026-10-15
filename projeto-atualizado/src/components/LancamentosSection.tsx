@@ -19,12 +19,12 @@ interface OtherRelease {
   streamingUrl: string;
 }
 
+// Target release date: 06 de Novembro de 2026 às 00:00 (Horário de Brasília)
+const TARGET_DATE = new Date('2026-11-06T00:00:00');
+
 export const LancamentosSection: React.FC<{
   onOpenModalVideo?: (videoSrc: string) => void;
 }> = ({ onOpenModalVideo }) => {
-  // Target release date: 06 de Novembro de 2026 às 00:00 (Horário de Brasília)
-  const targetDate = new Date('2026-11-06T00:00:00');
-
   const [timeLeft, setTimeLeft] = useState({
     days: 0,
     hours: 0,
@@ -43,7 +43,7 @@ export const LancamentosSection: React.FC<{
   useEffect(() => {
     const calculateTimeLeft = () => {
       const now = new Date().getTime();
-      const difference = targetDate.getTime() - now;
+      const difference = TARGET_DATE.getTime() - now;
 
       if (difference <= 0) {
         setTimeLeft({

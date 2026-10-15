@@ -1,0 +1,11 @@
+{
+  "name": "matheus-mafra-root",
+  "private": true,
+  "scripts": {
+    "postinstall": "npm --prefix projeto-atualizado install",
+    "dev": "npm --prefix projeto-atualizado run dev",
+    "build": "npm --prefix projeto-atualizado run build",
+    "lint": "npm --prefix projeto-atualizado run lint",
+    "preview": "npm --prefix projeto-atualizado run preview"
+  }
+}
